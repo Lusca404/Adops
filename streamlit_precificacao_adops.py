@@ -80,14 +80,12 @@ elif pagina == "Precificação P2 (Rewarded)":
         st.info(f"CPC Alvo: **${cpc_alvo:.3f}**")
         st.info(f"Perda de Usuário estimada: **{perda_usuario}**")
 
-        if cpc_corrigido < cpc_alvo and cpc_corrigido < cpc_mob_top:
+        if cpc_corrigido > cpc_alvo and cobertura > 30 and cpc_corrigido > cpc_mob_top:
             acao = "aumentar"
-        elif cpc_corrigido < cpc_alvo and cpc_corrigido > cpc_mob_top:
-            acao = "manter"
-        elif cpc_corrigido > cpc_alvo and cpc_corrigido > cpc_mob_top:
-            acao = "manter"
+        elif cpc_corrigido < cpc_alvo and cobertura > 30 and cpc_corrigido < cpc_mob_top:
+            acao = "diminuir"
         else:
-            acao = "aumentar"
+            acao = "manter"
 
         st.success(f"Ação recomendada: **{acao.upper()}**")
         if acao in ["aumentar", "diminuir"]:
