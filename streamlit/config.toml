@@ -3,3 +3,16 @@ base="dark"
 
 [server]
 runOnSave = true
+
+[client]
+showErrorDetails = false
+
+[runner]
+fastReruns = true
+
+[server]
+runOnSave = true
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = true
